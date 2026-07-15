@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "components": [
+    {
+      "name": "usbliter8",
+      "directory": "usbliter8",
+      "role": "SecureROM DFU to trampoline-preserving PWND DFU",
+      "repository": "https://github.com/burnegg/usbliter8.git",
+      "upstream": "https://github.com/prdgmshift/usbliter8.git",
+      "base_commit": "afe8b5c8998fce63e76c0b2a88c606c61e2950c7",
+      "release_branch": "t8020",
+      "release_commit": "aa90621ec213ed9c9274fc25fcbf1204561b75a4"
+    },
+    {
+      "name": "yolodfu",
+      "directory": "yolodfu",
+      "role": "patched iBoot to owned EL1 DFU transport",
+      "repository": "https://github.com/burnegg/yolodfu.git",
+      "upstream": null,
+      "base_commit": "6ca6e4539a37b3009a18b1d37928eeabd9037c56",
+      "release_branch": "t8020",
+      "release_commit": "ac02169d2ae4874518bcd78e68e270520acde60d"
+    },
+    {
+      "name": "PongoOS",
+      "directory": "PongoOS",
+      "role": "Pongo runtime, KPF, and XNU handoff",
+      "repository": "https://github.com/burnegg/PongoOS.git",
+      "upstream": "https://github.com/palera1n/PongoOS.git",
+      "base_commit": "02051bf25b83495013481edcdf9deb203424da14",
+      "release_branch": "t8020",
+      "release_commit": "c4f84f86d3500c0ad708f6d59e86f8fa1f2ab165"
+    },
+    {
+      "name": "jbinit",
+      "directory": "jbinit",
+      "role": "rootless userspace bootstrap and spawn integration",
+      "repository": "https://github.com/burnegg/jbinit.git",
+      "upstream": "https://github.com/palera1n/jbinit.git",
+      "base_commit": "8c301ef230126c0efb43cb924d08618e020dfcb1",
+      "release_branch": "t8020",
+      "release_commit": "773fef16e0bae0237a7cbf103e84ebec94853e13"
+    }
+  ]
+}
