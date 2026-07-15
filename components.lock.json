@@ -39,7 +39,7 @@
       "upstream": "https://github.com/palera1n/jbinit.git",
       "base_commit": "8c301ef230126c0efb43cb924d08618e020dfcb1",
       "release_branch": "t8020",
-      "release_commit": "773fef16e0bae0237a7cbf103e84ebec94853e13"
+      "release_commit": "ac1647d2312a1560672d3ad96a108acc58e981ae"
     }
   ]
 }
