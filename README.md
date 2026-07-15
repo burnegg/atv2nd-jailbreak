@@ -16,10 +16,10 @@ Source integration for the T8020 Apple TV jailbreak boot chain.
 
 | Component | Input | Output |
 | --- | --- | --- |
-| [usbliter8](components/usbliter8) | SecureROM DFU | PWND DFU with the iBoot trampoline preserved |
-| [yoloDFU](components/yolodfu) | Patched iBoot trampoline | EL1 DFU runtime and Pongo loader container |
-| [PongoOS](components/PongoOS) | Pongo loader container | Patched XNU handoff |
-| [jbinit](components/jbinit) | Patched XNU | Rootless userspace bootstrap |
+| [usbliter8](https://github.com/burnegg/usbliter8) | SecureROM DFU | PWND DFU with the iBoot trampoline preserved |
+| [yoloDFU](https://github.com/burnegg/yolodfu) | Patched iBoot trampoline | EL1 DFU runtime and Pongo loader container |
+| [PongoOS](https://github.com/burnegg/PongoOS) | Pongo loader container | Patched XNU handoff |
+| [jbinit](https://github.com/burnegg/jbinit) | Patched XNU | Rootless userspace bootstrap |
 
 The component gitlinks and `components.lock.json` pin the source revisions used
 by the tested chain.
@@ -42,7 +42,7 @@ make verify
 ## Build
 
 Prepare jbinit's external inputs using the layout documented by the
-[jbinit repository](components/jbinit/README.md).
+[jbinit repository](https://github.com/burnegg/jbinit).
 
 Build the host and device-side components in dependency order:
 
