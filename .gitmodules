@@ -1,0 +1,16 @@
+[submodule "components/usbliter8"]
+	path = components/usbliter8
+	url = ../usbliter8.git
+	branch = t8020
+[submodule "components/yolodfu"]
+	path = components/yolodfu
+	url = ../yolodfu.git
+	branch = t8020
+[submodule "components/PongoOS"]
+	path = components/PongoOS
+	url = ../PongoOS.git
+	branch = t8020
+[submodule "components/jbinit"]
+	path = components/jbinit
+	url = ../jbinit.git
+	branch = t8020

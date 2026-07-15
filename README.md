@@ -1,45 +1,68 @@
-# T8020 jailbreak chain
+# atv2nd-jailbreak
 
-This repository pins the independently publishable components of the T8020
-boot chain. It contains no firmware, device identifiers, runtime logs, or
-hardware-debug workflows.
+Source integration for the T8020 Apple TV jailbreak boot chain.
 
-## Component boundaries
+## Tested target
 
-| Component | Producer | Consumer | Owned transition |
-| --- | --- | --- | --- |
-| usbliter8 | SecureROM DFU | patched iBoot | PWND DFU and trampoline preservation |
-| yoloDFU | patched iBoot trampoline | Pongo loader | owned EL1 runtime and ROM DFU transport |
-| PongoOS | loader container | XNU | platform setup, KPF, and kernel handoff |
-| jbinit | patched XNU | rootless userspace | bootstrap and spawn integration |
+| Item | Version |
+| --- | --- |
+| Hardware | Apple TV 4K (2nd generation) |
+| Product | AppleTV11,1 (`j305ap`) |
+| SoC | T8020 (A12) |
+| tvOS | 26.5 (`23L471`) |
+| XNU | `xnu-12377.123.3~2/RELEASE_ARM64_T8020` |
 
-`components.lock.json` binds every component to a source repository, a clone
-base or independent root, a clean release branch, and an exact release commit.
-Those commits must be published before a fresh checkout can reproduce the
-chain.
+## Components
 
-## Checkout layout
+| Component | Input | Output |
+| --- | --- | --- |
+| [usbliter8](components/usbliter8) | SecureROM DFU | PWND DFU with the iBoot trampoline preserved |
+| [yoloDFU](components/yolodfu) | Patched iBoot trampoline | EL1 DFU runtime and Pongo loader container |
+| [PongoOS](components/PongoOS) | Pongo loader container | Patched XNU handoff |
+| [jbinit](components/jbinit) | Patched XNU | Rootless userspace bootstrap |
 
-Place exact checkouts under `components/` using the directory names recorded in
-the lock file, then verify them:
+The component gitlinks and `components.lock.json` pin the source revisions used
+by the tested chain.
+
+## Clone
 
 ```sh
+git clone --recurse-submodules https://github.com/burnegg/atv2nd-jailbreak.git
+cd atv2nd-jailbreak
 make verify
 ```
 
-The verifier requires each checkout HEAD to equal the pinned release commit,
-proves that the upstream base is an ancestor, and rejects tracked changes.
+For an existing checkout:
 
-## Build order
+```sh
+git submodule update --init --recursive
+make verify
+```
 
-The normal build order is jbinit, PongoOS, and yoloDFU. usbliter8 is an
-independent firmware build. Required firmware and third-party userspace inputs
-must be supplied separately and are intentionally not part of this repository.
+## Build
+
+Prepare jbinit's external inputs using the layout documented by the
+[jbinit repository](components/jbinit/README.md).
+
+Build the host and device-side components in dependency order:
+
+```sh
+make build-jbinit
+make build-pongo
+make build-yolodfu
+```
+
+Build the RP2350 usbliter8 firmware with the Pico SDK:
 
 ```sh
 make build-usbliter8 PICO_SDK_PATH=/path/to/pico-sdk
+```
+
+Create the patched iBSS, Pongo container, and jbinit binpack bundle:
+
+```sh
 make artifacts IBSS_INPUT=/path/to/decrypted-ibss.bin
 ```
 
-The artifact target produces the patched iBSS, loader-plus-Pongo container,
-and jbinit binpack under `artifacts/`. It does not transfer or execute them.
+Generated files are written to `artifacts/`. Build input and output hashes for
+the tested target are recorded in [RELEASE_STATUS.md](RELEASE_STATUS.md).

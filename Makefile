@@ -19,6 +19,8 @@ build-usbliter8: verify
 	cmake --build "$(COMPONENT_ROOT)/usbliter8/build" -j$(JOBS)
 
 build-jbinit: verify
+	# hfsplus and dmg-bin share one CMake tree and must not be primed in parallel.
+	$(MAKE) -C "$(COMPONENT_ROOT)/jbinit" -j1 tools
 	$(MAKE) -C "$(COMPONENT_ROOT)/jbinit" -j$(JOBS)
 
 build-pongo: verify

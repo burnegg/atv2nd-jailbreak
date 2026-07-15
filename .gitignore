@@ -1,5 +1,3 @@
 artifacts/
-components/
 __pycache__/
 *.pyc
-
