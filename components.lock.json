@@ -19,7 +19,7 @@
       "upstream": null,
       "base_commit": "6ca6e4539a37b3009a18b1d37928eeabd9037c56",
       "release_branch": "t8020",
-      "release_commit": "3aa721c71efb14a9e1b33bc1cd36f5d45fc278c2"
+      "release_commit": "d439c16168229d7b6fdc645a3310cdbb1745f767"
     },
     {
       "name": "PongoOS",

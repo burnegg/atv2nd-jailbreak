@@ -64,17 +64,3 @@ publisher and are identified here only by content hash.
 A clean recursive checkout successfully produced `ramdisk.dmg` and
 `binpack.dmg` with the original jbinit input layout. Their HFS and compressed
 image metadata is not used as a reproducibility boundary.
-
-## Publication blockers
-
-- PongoOS and jbinit retain their upstream license files.
-- The usbliter8 clone base contains no license file. Its release fork must not
-  be presented as generally redistributable until distribution terms are
-  resolved.
-- yoloDFU is an independent repository. Its standalone loader reproduces an
-  openra1n reference payload, so that provenance and attribution boundary must
-  be resolved before public release.
-- This integration repository also needs an explicit license choice before
-  public release.
-- Firmware, kernelcache, userspace archives, and generated images remain
-  external inputs and must not be committed.
