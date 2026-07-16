@@ -38,16 +38,17 @@ pre-publication artifacts.
 
 ## PongoOS and KPF
 
-Built with `PONGO_SRAM_BASE=0x19c000000`. The static KPF test used the complete
-fileset kernel payload with SHA-256
-`c04e5909c99d50cfc47aeb0e6159e1c866c32893accbaf30d70418cdd0b62d5c`
-and completed successfully.
+Built with `PONGO_SRAM_BASE=0x19c000000`. Static KPF tests used complete
+fileset kernel payloads for tvOS 26.3 and 26.5. Both completed successfully.
+Their SHA-256 values are
+`1424450974769bc50301401e82cf146acaeb21693ec03e4a3966ebb0f93c04f0`
+and `c04e5909c99d50cfc47aeb0e6159e1c866c32893accbaf30d70418cdd0b62d5c`.
 
 | Output | Size | SHA-256 |
 | --- | ---: | --- |
 | `Pongo.bin` | 254768 | `31d4915f5f5f382b08eae81ad135455a46ba33399c240de92d7804a43678d421` |
-| `checkra1n-kpf-pongo` | 128280 | `d712c13362da9956c5a82e204b6f171679246551587fe894ead1ed22fe57a224` |
-| `kpf-test.macos` | 167168 | `62730a29646f7987687308316b59cf45c3ef25c3d2cb1b13cdc951df261d2ea1` |
+| `checkra1n-kpf-pongo` | 128280 | `8962c0fce0b8b7a7a4aa83275f223b928536fbc0e04997985473d2052b7e57ca` |
+| `kpf-test.macos` | 167168 | `2d7efb1950e356d8add6b77980dda7f975388f03328e3f4d36b366af10836cfd` |
 | patched kernel dump | 56295424 | `4487c307a4af45257cf88eb9ce83ab4fea41bff3067ebcaf81eddf640752fe7d` |
 
 ## jbinit

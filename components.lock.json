@@ -29,7 +29,7 @@
       "upstream": "https://github.com/palera1n/PongoOS.git",
       "base_commit": "02051bf25b83495013481edcdf9deb203424da14",
       "release_branch": "t8020",
-      "release_commit": "c4f84f86d3500c0ad708f6d59e86f8fa1f2ab165"
+      "release_commit": "0bcdeed02df72f91c1e405cfe4c4994e0084f839"
     },
     {
       "name": "jbinit",

@@ -39,6 +39,9 @@ artifacts: build-jbinit build-pongo build-yolodfu
 	$(MAKE) -C "$(COMPONENT_ROOT)/yolodfu" container \
 		PONGO_INPUT="$(abspath $(COMPONENT_ROOT)/PongoOS/build/Pongo.bin)" \
 		PONGO_CONTAINER="$(abspath $(ARTIFACTS))/pongo-container.bin"
+	cp "$(COMPONENT_ROOT)/PongoOS/build/checkra1n-kpf-pongo" \
+		"$(ARTIFACTS)/checkra1n-kpf-pongo"
+	cp "$(COMPONENT_ROOT)/jbinit/src/ramdisk.dmg" "$(ARTIFACTS)/ramdisk.dmg"
 	cp "$(COMPONENT_ROOT)/jbinit/src/binpack.dmg" "$(ARTIFACTS)/binpack.dmg"
 
 clean:
